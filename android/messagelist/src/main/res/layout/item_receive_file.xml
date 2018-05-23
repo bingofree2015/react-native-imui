@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/aurora_msgitem_send_style">
+
+    <TextView
+        android:id="@+id/aurora_tv_msgitem_date"
+        style="@style/aurora_msgitem_date_style" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp">
+
+        <include layout="@layout/item_head_left" />
+
+        <TextView
+            android:id="@+id/aurora_tv_msgitem_display_name"
+            style="@style/aurora_msgitem_display_name_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/aurora_iv_msgitem_avatar" />
+
+        <RelativeLayout
+            android:id="@+id/aurora_fl_msgitem_file_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/aurora_message_padding_top"
+            android:layout_marginLeft="@dimen/aurora_avatar_padding"
+            android:layout_below="@id/aurora_tv_msgitem_display_name"
+            android:layout_toEndOf="@id/aurora_iv_msgitem_avatar"
+            android:layout_toRightOf="@id/aurora_iv_msgitem_avatar"
+            android:background="@drawable/aurora_receivetxt_bubble"
+            android:padding="10dp">
+            <ImageView
+                android:id="@+id/aurora_iv_msgitem_fileicon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="12dp"
+                android:src="@drawable/file_ic_session_unknow"/>
+            <TextView
+                android:id="@+id/aurora_iv_msgitem_filename"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginBottom="2dp"
+                android:layout_toRightOf="@id/aurora_iv_msgitem_fileicon"
+                android:autoLink="none"
+                android:maxLines="2"
+                android:maxWidth="160dp"
+                android:textColor="@android:color/black" />
+            <TextView
+                android:id="@+id/aurora_iv_msgitem_filestatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/aurora_iv_msgitem_fileicon"
+                android:layout_below="@id/aurora_iv_msgitem_filename"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:textColor="@color/aurora_msg_date_text_color"
+                android:textSize="12sp" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</LinearLayout>

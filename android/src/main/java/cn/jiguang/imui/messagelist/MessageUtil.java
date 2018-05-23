@@ -12,6 +12,7 @@ import cn.jiguang.imui.messagelist.module.RCTAccountNotice;
 import cn.jiguang.imui.messagelist.module.RCTBankTransfer;
 import cn.jiguang.imui.messagelist.module.RCTCard;
 import cn.jiguang.imui.messagelist.module.RCTExtend;
+import cn.jiguang.imui.messagelist.module.RCTFile;
 import cn.jiguang.imui.messagelist.module.RCTLink;
 import cn.jiguang.imui.messagelist.module.RCTLocation;
 import cn.jiguang.imui.messagelist.module.RCTMediaFile;
@@ -52,8 +53,6 @@ public class MessageUtil {
             case RECEIVE_VOICE:
             case SEND_VIDEO:
             case RECEIVE_VIDEO:
-            case SEND_FILE:
-            case RECEIVE_FILE:
             case SEND_IMAGE:
             case RECEIVE_IMAGE:
                 if (message.hasKey(MessageConstant.Message.EXTEND)) {
@@ -75,6 +74,27 @@ public class MessageUtil {
                     }
                     if (ext.hasKey(MessageConstant.MediaFile.WIDTH)) {
                         e.setWidth(ext.getString(MessageConstant.MediaFile.WIDTH));
+                    }
+                    extend = e;
+                }
+                break;
+            case SEND_FILE:
+            case RECEIVE_FILE:
+                if(message.hasKey(MessageConstant.Message.EXTEND)) {
+                    ext = message.getMap(MessageConstant.Message.EXTEND);
+                    RCTFile e = new RCTFile(ext.getString(MessageConstant.File.FILE_NAME), ext.getString(MessageConstant.File.EXTENSION),
+                            Long.parseLong(ext.getString(MessageConstant.File.SIZE)));
+                    if(ext.hasKey(MessageConstant.File.DISPLAY_NAME)) {
+                        e.setDisplayName(ext.getString(MessageConstant.File.DISPLAY_NAME));
+                    }
+                    if(ext.hasKey(MessageConstant.File.PATH)) {
+                        e.setPath(ext.getString(MessageConstant.File.PATH));
+                    }
+                    if(ext.hasKey(MessageConstant.File.THUMB_PATH)) {
+                        e.setThumbPath(ext.getString(MessageConstant.File.THUMB_PATH));
+                    }
+                    if(ext.hasKey(MessageConstant.File.URL)) {
+                        e.setUrl(ext.getString(MessageConstant.File.URL));
                     }
                     extend = e;
                 }

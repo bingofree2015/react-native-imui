@@ -1,5 +1,7 @@
 package cn.jiguang.imui.messagelist;
 
+import android.util.Log;
+
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
@@ -14,6 +16,7 @@ import cn.jiguang.imui.messagelist.module.RCTAccountNotice;
 import cn.jiguang.imui.messagelist.module.RCTBankTransfer;
 import cn.jiguang.imui.messagelist.module.RCTCard;
 import cn.jiguang.imui.messagelist.module.RCTExtend;
+import cn.jiguang.imui.messagelist.module.RCTFile;
 import cn.jiguang.imui.messagelist.module.RCTLink;
 import cn.jiguang.imui.messagelist.module.RCTLocation;
 import cn.jiguang.imui.messagelist.module.RCTMediaFile;
@@ -88,8 +91,6 @@ public class RCTMessageDeserializer implements JsonDeserializer<RCTMessage> {
                 case RECEIVE_VOICE:
                 case SEND_VIDEO:
                 case RECEIVE_VIDEO:
-                case SEND_FILE:
-                case RECEIVE_FILE:
                 case SEND_IMAGE:
                 case RECEIVE_IMAGE:
                     if (jsonObject.has(MessageConstant.Message.EXTEND)) {
@@ -107,6 +108,27 @@ public class RCTMessageDeserializer implements JsonDeserializer<RCTMessage> {
                         }
                         if (ext.has(MessageConstant.MediaFile.WIDTH)) {
                             e.setWidth(getGsonString(ext, MessageConstant.MediaFile.WIDTH));
+                        }
+                        extend = e;
+                    }
+                    break;
+                case SEND_FILE:
+                case RECEIVE_FILE:
+                    if (jsonObject.has(MessageConstant.Message.EXTEND)) {
+                        ext = jsonObject.get(MessageConstant.Message.EXTEND).getAsJsonObject();
+                        RCTFile e = new RCTFile(getGsonString(ext, MessageConstant.File.FILE_NAME), getGsonString(ext, MessageConstant.File.EXTENSION),
+                                Long.parseLong(getGsonString(ext, MessageConstant.File.SIZE)));
+                        if(ext.has(MessageConstant.File.DISPLAY_NAME)) {
+                            e.setDisplayName(getGsonString(ext, MessageConstant.File.DISPLAY_NAME));
+                        }
+                        if(ext.has(MessageConstant.File.PATH)) {
+                            e.setPath(getGsonString(ext, MessageConstant.File.PATH));
+                        }
+                        if(ext.has(MessageConstant.File.THUMB_PATH)) {
+                            e.setThumbPath(getGsonString(ext, MessageConstant.File.THUMB_PATH));
+                        }
+                        if(ext.has(MessageConstant.File.URL)) {
+                            e.setUrl(getGsonString(ext, MessageConstant.File.URL));
                         }
                         extend = e;
                     }

@@ -73,66 +73,66 @@
 
 
 - (instancetype)init {
-  self = [super init];
-  return self;
+    self = [super init];
+    return self;
 }
 
 - (RCTMessageModel *)convertMessageDicToModel:(NSMutableDictionary *)message {
-  return [[RCTMessageModel alloc] initWithMessageDic: message];
+    return [[RCTMessageModel alloc] initWithMessageDic: message];
 }
 
 - (instancetype)initWithFrame:(CGRect)frame {
-  self = [super initWithFrame: frame];
-  return self;
+    self = [super initWithFrame: frame];
+    return self;
 }
 
 - (id)initWithCoder:(NSCoder *)aDecoder {
-  self = [super initWithCoder:aDecoder];
-  if (self) {
-    self.frame = CGRectMake(0, 0, screenW, screenH-60-50);//60为导航栏高度，50为输入栏默认高度
-      self.autoresizingMask = UIViewAutoresizingNone;
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(appendMessages:)
-                                                 name:kAppendMessages object:nil];
-
-      [[NSNotificationCenter defaultCenter] addObserver:self
-                                               selector:@selector(deleteMessage:)
-                                                   name:kDeleteMessage object:nil];
-      [[NSNotificationCenter defaultCenter] addObserver:self
-                                               selector:@selector(cleanAllMessages)
-                                                   name:kCleanAllMessages object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(insertMessagesToTop:)
-                                                 name:kInsertMessagesToTop object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(updateMessage:)
-                                                 name:kUpdateMessge object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(scrollToBottom:)
-                                                 name:kScrollToBottom object:nil];
-      [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(clickLongTouchShowMenu:) name:kClickLongTouchShowMenu object:nil];
-    
-      [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(clickRecordNotification:) name:RecordChangeNotification object:nil];
-      [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(clickRecordLevelNotification:) name:kRecordLevelNotification object:nil];
-      [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(clickRecordLongTimeNotification:) name:kRecordLongNotification object:nil];
-      [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(clickChangeHeight:) name:@"ChangeMessageListHeightNotification" object:nil];
-      [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(clickShowOrigImgView:) name:kShowOrigImageNotification object:nil];
-      [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(clickScanOrigImgView:) name:@"DWOrigImageViewScanNotificatiom" object:nil];
-      [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(clickScrollEnabled:) name:@"clickScrollEnabled" object:nil];
-      
-    [self addObserver:self forKeyPath:@"bounds" options:NSKeyValueObservingOptionNew context:NULL];
-    
-    
-//    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
-////    [refreshControl addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
-//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//      [_messageList.messageCollectionView addSubview:refreshControl];
-//      _messageList.messageCollectionView.alwaysBounceVertical = YES;
-//    });
-      [self addCoverView];
-      
-  }
-  return self;
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        self.frame = CGRectMake(0, 0, screenW, screenH-60-50);//60为导航栏高度，50为输入栏默认高度
+        self.autoresizingMask = UIViewAutoresizingNone;
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(appendMessages:)
+                                                     name:kAppendMessages object:nil];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(deleteMessage:)
+                                                     name:kDeleteMessage object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(cleanAllMessages)
+                                                     name:kCleanAllMessages object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(insertMessagesToTop:)
+                                                     name:kInsertMessagesToTop object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(updateMessage:)
+                                                     name:kUpdateMessge object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(scrollToBottom:)
+                                                     name:kScrollToBottom object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(clickLongTouchShowMenu:) name:kClickLongTouchShowMenu object:nil];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(clickRecordNotification:) name:RecordChangeNotification object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(clickRecordLevelNotification:) name:kRecordLevelNotification object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(clickRecordLongTimeNotification:) name:kRecordLongNotification object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(clickChangeHeight:) name:@"ChangeMessageListHeightNotification" object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(clickShowOrigImgView:) name:kShowOrigImageNotification object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(clickScanOrigImgView:) name:@"DWOrigImageViewScanNotificatiom" object:nil];
+        [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(clickScrollEnabled:) name:@"clickScrollEnabled" object:nil];
+        
+        [self addObserver:self forKeyPath:@"bounds" options:NSKeyValueObservingOptionNew context:NULL];
+        
+        
+        //    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+        ////    [refreshControl addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
+        //    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        //      [_messageList.messageCollectionView addSubview:refreshControl];
+        //      _messageList.messageCollectionView.alwaysBounceVertical = YES;
+        //    });
+        [self addCoverView];
+        
+    }
+    return self;
 }
 
 
@@ -154,7 +154,7 @@
     [coverView addSubview:recordView];
     coverView.hidden = YES;
     [[UIApplication sharedApplication].keyWindow addSubview:coverView];
-//    NSLog(@"keyWindow:%zd",[UIApplication sharedApplication].keyWindow.subviews.count);
+    //    NSLog(@"keyWindow:%zd",[UIApplication sharedApplication].keyWindow.subviews.count);
 }
 
 
@@ -190,31 +190,31 @@
 }
 
 - (void)appendMessages:(NSNotification *) notification {
-  NSArray *messages = [[notification object] copy];
-  
-  for (NSMutableDictionary *message in messages) {
-      NSTimeInterval msgTime = [[message objectForKey:@"timeString"] doubleValue] ;
-      if (![_strLastMsgId isEqualToString:[message objectForKey:@"msgId"]]) {
-          if ((!_lastTime)||(fabs(_lastTime-msgTime) > 180)) {
-              _lastTime = msgTime;
-              _strLastMsgId = [message objectForKey:@"msgId"];
-              [message setObject:[NSNumber numberWithBool:YES] forKey:@"isShowTime"];
-          }else{
-              [message setObject:[NSNumber numberWithBool:NO] forKey:@"isShowTime"];
-          }
-      }else{
-          [message setObject:[NSNumber numberWithBool:YES] forKey:@"isShowTime"];
-      }
-      [self appendImageMessage:message];
-    RCTMessageModel * messageModel = [self convertMessageDicToModel:message];
-      if (isShowMenuing) {
-          [self.tmpMessageArr addObject:messageModel];
-      }else{
-          dispatch_async(dispatch_get_main_queue(), ^{
-              [self.messageList appendMessageWith: messageModel];
-          });
-      }
-  }
+    NSArray *messages = [[notification object] copy];
+    
+    for (NSMutableDictionary *message in messages) {
+        NSTimeInterval msgTime = [[message objectForKey:@"timeString"] doubleValue] ;
+        if (![_strLastMsgId isEqualToString:[message objectForKey:@"msgId"]]) {
+            if ((!_lastTime)||(fabs(_lastTime-msgTime) > 180)) {
+                _lastTime = msgTime;
+                _strLastMsgId = [message objectForKey:@"msgId"];
+                [message setObject:[NSNumber numberWithBool:YES] forKey:@"isShowTime"];
+            }else{
+                [message setObject:[NSNumber numberWithBool:NO] forKey:@"isShowTime"];
+            }
+        }else{
+            [message setObject:[NSNumber numberWithBool:YES] forKey:@"isShowTime"];
+        }
+        [self appendImageMessage:message];
+        RCTMessageModel * messageModel = [self convertMessageDicToModel:message];
+        if (isShowMenuing) {
+            [self.tmpMessageArr addObject:messageModel];
+        }else{
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.messageList appendMessageWith: messageModel];
+            });
+        }
+    }
 }
 
 - (void)insertMessagesToTop:(NSNotification *) notification {
@@ -283,18 +283,18 @@
     }else{
         [message setObject:[NSNumber numberWithBool:NO] forKey:@"isShowTime"];
     }
-      RCTMessageModel * messageModel = [self convertMessageDicToModel: message];
+    RCTMessageModel * messageModel = [self convertMessageDicToModel: message];
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.messageList updateMessageWith: messageModel];
     });
 }
 
 - (void)scrollToBottom:(NSNotification *) notification {
-  BOOL animate = [[notification object] copy];
-  
-  dispatch_async(dispatch_get_main_queue(), ^{
-    [self.messageList scrollToBottomWith:animate];
-  });
+    BOOL animate = [[notification object] copy];
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.messageList scrollToBottomWith:animate];
+    });
 }
 
 - (void)clickRecordNotification:(NSNotification *)notification{
@@ -314,8 +314,8 @@
             recordView.status = UIRecordSoundStatusCancleSending;
         }else if ([strStatus isEqualToString:@"Short"]) {
             recordView.status = UIRecordSoundStatusRecordingShort;
-//            sleep(1);
-//            coverView.hidden = YES;
+            //            sleep(1);
+            //            coverView.hidden = YES;
         }
     });
 }
@@ -329,7 +329,7 @@
     });
     
 }
-                   
+
 - (void)clickRecordLongTimeNotification:(NSNotification *)notification{
     NSNumber *longTime = [notification object];
     
@@ -346,7 +346,7 @@
     [UIView animateWithDuration:3 animations:^{
         self.height += tmpH;
     } completion:^(BOOL finished) {
-         self.height = height;
+        self.height = height;
     }];
 }
 
@@ -431,7 +431,7 @@
     {
         if (![window respondsToSelector:@selector(screen)] || [window screen] == [UIScreen mainScreen])
         {
-
+            
             CGContextSaveGState(context);
             CGContextTranslateCTM(context, [window center].x, [window center].y);
             CGContextConcatCTM(context, [window transform]);
@@ -476,7 +476,7 @@
 
 - (void)mergeStatusBarToContext:(CGContextRef)context rect:(CGRect)rect{
     UIWindow *statusBarView = [[UIApplication sharedApplication] valueForKey:@"statusBarWindow"];
-//    UIView *statusBarView = [UIView statusBarInstance_ComOpenThreadOTScreenshotHelper];
+    //    UIView *statusBarView = [UIView statusBarInstance_ComOpenThreadOTScreenshotHelper];
     CGContextSaveGState(context);
     CGContextTranslateCTM(context, [statusBarView center].x, [statusBarView center].y);
     CGContextConcatCTM(context, [statusBarView transform]);
@@ -497,7 +497,7 @@
             [_delegate onClickScanImageView:strResult];
         }
     });
-
+    
 }
 
 - (void)clickScrollEnabled:(NSNotification *)noti{
@@ -506,14 +506,14 @@
 }
 
 - (void)awakeFromNib {
-  [super awakeFromNib];
-
+    [super awakeFromNib];
+    
 }
 
 - (void)dealloc {
-  [[NSNotificationCenter defaultCenter] removeObserver: self];
-  [self removeObserver:self forKeyPath:@"bounds"];
-
+    [[NSNotificationCenter defaultCenter] removeObserver: self];
+    [self removeObserver:self forKeyPath:@"bounds"];
+    
 }
 
 

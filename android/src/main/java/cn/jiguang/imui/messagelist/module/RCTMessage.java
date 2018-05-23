@@ -69,6 +69,8 @@ public class RCTMessage implements IMessage {
                     return MessageType.SEND_IMAGE;
                 case MessageConstant.MsgType.VIDEO:
                     return MessageType.SEND_VIDEO;
+                case MessageConstant.MsgType.FILE:
+                    return MessageType.SEND_FILE;
                 case MessageConstant.MsgType.TIP:
                     return MessageType.TIP;
                 case MessageConstant.MsgType.EVENT:
@@ -104,6 +106,8 @@ public class RCTMessage implements IMessage {
                     return MessageType.RECEIVE_IMAGE;
                 case MessageConstant.MsgType.VIDEO:
                     return MessageType.RECEIVE_VIDEO;
+                case MessageConstant.MsgType.FILE:
+                    return MessageType.RECEIVE_FILE;
                 case MessageConstant.MsgType.TIP:
                     return MessageType.TIP;
                 case MessageConstant.MsgType.EVENT:

@@ -35,7 +35,11 @@ public class VideoViewHolder<MESSAGE extends IMessage> extends AvatarViewHolder<
         if (ext == null) {
             return;
         }
-        mImageLoader.loadImage(mImageCover, ext.getThumbPath());
+        if(ext.getThumbPath() != null) {
+            mImageLoader.loadImage(mImageCover, ext.getThumbPath());
+        } else {
+            mImageLoader.loadImage(mImageCover, ext.getPath());
+        }
         mImageCover.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

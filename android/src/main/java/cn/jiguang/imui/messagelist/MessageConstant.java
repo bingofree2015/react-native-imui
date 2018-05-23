@@ -104,6 +104,18 @@ public class MessageConstant {
         public final static String SIZE = "size";
     }
 
+    public static class File {
+        public final static String DISPLAY_NAME = "displayName";
+        public final static String EXTENSION = "extension";
+        public final static String FILE_NAME = "fileName";
+        public final static String URL = "url";
+        public final static String PATH = "path";
+        public final static String PATH_FOR_SAVE = "pathForSave";
+        public final static String SIZE = "size";
+        public final static String THUMB_PATH = "thumbPath";
+        public final static String THUMB_PATH_FOR_SAVE = "thumbPathForSave";
+    }
+
     public static class RedPacket {
         public final static String TYPE = "type";
         public final static String COMMENTS = "comments";

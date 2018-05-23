@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     style="@style/aurora_msgitem_send_style">
 
     <TextView
@@ -15,45 +14,47 @@
 
         <include layout="@layout/item_head_right"/>
 
-        <FrameLayout
-            android:id="@+id/aurora_fl_msgitem_video_container"
+        <RelativeLayout
+            android:id="@+id/aurora_fl_msgitem_file_container"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_marginRight="8dp"
             android:layout_toLeftOf="@+id/aurora_iv_msgitem_avatar"
             android:layout_toStartOf="@+id/aurora_iv_msgitem_avatar"
-            android:background="@drawable/aurora_bg_video">
-
-            <cn.jiguang.imui.view.ShapeImageView
-                android:id="@+id/aurora_iv_msgitem_cover"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:maxWidth="160dp"
-                android:maxHeight="280dp"
-                android:layout_gravity="center"
-                android:scaleType="centerCrop"
-                app:videomessage_radius="8dp" />
-
+            android:background="@drawable/aurora_sendtxt_bubble"
+            android:padding="10dp">
             <ImageView
-                android:id="@+id/aurora_iv_msgitem_play"
-                android:layout_width="64dp"
-                android:layout_height="64dp"
-                android:layout_gravity="center"
-                android:src="@drawable/aurora_videomessage_play" />
-
-            <TextView
-                android:id="@+id/aurora_tv_duration"
+                android:id="@+id/aurora_iv_msgitem_fileicon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="right|bottom"
-                android:layout_marginBottom="4dp"
-                android:layout_marginRight="8dp"
-                android:textColor="@android:color/black"
-                android:textSize="12sp"
-                tools:text="00:02"
-                android:visibility="gone"/>
-        </FrameLayout>
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="12dp"
+                android:src="@drawable/file_ic_session_unknow"/>
+            <TextView
+                android:id="@+id/aurora_iv_msgitem_filename"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginBottom="2dp"
+                android:layout_toRightOf="@id/aurora_iv_msgitem_fileicon"
+                android:autoLink="none"
+                android:maxLines="2"
+                android:maxWidth="160dp"
+                android:textColor="@android:color/black" />
+            <TextView
+                android:id="@+id/aurora_iv_msgitem_filestatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/aurora_iv_msgitem_fileicon"
+                android:layout_below="@id/aurora_iv_msgitem_filename"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:textColor="@color/aurora_msg_date_text_color"
+                android:textSize="12sp" />
+
+        </RelativeLayout>
 
         <ImageButton
             android:id="@+id/aurora_ib_msgitem_resend"
@@ -61,7 +62,7 @@
             android:layout_height="20dp"
             android:layout_centerVertical="true"
             android:layout_marginRight="5dp"
-            android:layout_toLeftOf="@id/aurora_fl_msgitem_video_container"
+            android:layout_toLeftOf="@id/aurora_fl_msgitem_file_container"
             android:clickable="true"
             android:scaleType="fitCenter"
             android:background="@drawable/aurora_send_msg_error"
@@ -73,7 +74,7 @@
             android:layout_height="20dp"
             android:layout_centerVertical="true"
             android:layout_marginRight="3dp"
-            android:layout_toLeftOf="@id/aurora_fl_msgitem_video_container"
+            android:layout_toLeftOf="@id/aurora_fl_msgitem_file_container"
             android:visibility="visible"/>
 
     </RelativeLayout>
