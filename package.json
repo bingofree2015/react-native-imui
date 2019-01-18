@@ -76,7 +76,7 @@
   "readmeFilename": "README.md",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bingofree2015/react-native-imui.git"
+    "url": "https://github.com/bingofree2015/react-native-imui.git"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
