@@ -2,66 +2,66 @@
   "_args": [
     [
       {
-        "raw": "react-native-imui@git+https://github.com/reactnativecomponent/react-native-imui.git",
+        "raw": "react-native-imui@git+https://github.com/bingofree2015/react-native-imui.git",
         "scope": null,
         "escapedName": "react-native-imui",
         "name": "react-native-imui",
-        "rawSpec": "git+https://github.com/reactnativecomponent/react-native-imui.git",
-        "spec": "git+https://github.com/reactnativecomponent/react-native-imui.git",
+        "rawSpec": "git+https://github.com/bingofree2015/react-native-imui.git",
+        "spec": "git+https://github.com/bingofree2015/react-native-imui.git",
         "type": "hosted",
         "hosted": {
           "type": "github",
-          "ssh": "git@github.com:reactnativecomponent/react-native-imui.git",
-          "sshUrl": "git+ssh://git@github.com/reactnativecomponent/react-native-imui.git",
-          "httpsUrl": "git+https://github.com/reactnativecomponent/react-native-imui.git",
-          "gitUrl": "git://github.com/reactnativecomponent/react-native-imui.git",
-          "shortcut": "github:reactnativecomponent/react-native-imui",
+          "ssh": "git@github.com:bingofree2015/react-native-imui.git",
+          "sshUrl": "git+ssh://git@github.com/bingofree2015/react-native-imui.git",
+          "httpsUrl": "git+https://github.com/bingofree2015/react-native-imui.git",
+          "gitUrl": "git://github.com/bingofree2015/react-native-imui.git",
+          "shortcut": "github:bingofree2015/react-native-imui",
           "directUrl": "https://raw.githubusercontent.com/reactnativecomponent/react-native-imui/master/package.json"
         }
       },
       "/Users/dowin/KinoooProject/CompanyApp/react-native-wallet"
     ]
   ],
-  "_from": "git+https://github.com/reactnativecomponent/react-native-imui.git",
+  "_from": "git+https://github.com/bingofree2015/react-native-imui.git",
   "_id": "react-native-imui@1.0.3",
   "_inCache": true,
   "_location": "/react-native-imui",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "react-native-imui@git+https://github.com/reactnativecomponent/react-native-imui.git",
+    "raw": "react-native-imui@git+https://github.com/bingofree2015/react-native-imui.git",
     "scope": null,
     "escapedName": "react-native-imui",
     "name": "react-native-imui",
-    "rawSpec": "git+https://github.com/reactnativecomponent/react-native-imui.git",
-    "spec": "git+https://github.com/reactnativecomponent/react-native-imui.git",
+    "rawSpec": "git+https://github.com/bingofree2015/react-native-imui.git",
+    "spec": "git+https://github.com/bingofree2015/react-native-imui.git",
     "type": "hosted",
     "hosted": {
       "type": "github",
-      "ssh": "git@github.com:reactnativecomponent/react-native-imui.git",
-      "sshUrl": "git+ssh://git@github.com/reactnativecomponent/react-native-imui.git",
-      "httpsUrl": "git+https://github.com/reactnativecomponent/react-native-imui.git",
-      "gitUrl": "git://github.com/reactnativecomponent/react-native-imui.git",
-      "shortcut": "github:reactnativecomponent/react-native-imui",
+      "ssh": "git@github.com:bingofree2015/react-native-imui.git",
+      "sshUrl": "git+ssh://git@github.com/bingofree2015/react-native-imui.git",
+      "httpsUrl": "git+https://github.com/bingofree2015/react-native-imui.git",
+      "gitUrl": "git://github.com/bingofree2015/react-native-imui.git",
+      "shortcut": "github:bingofree2015/react-native-imui",
       "directUrl": "https://raw.githubusercontent.com/reactnativecomponent/react-native-imui/master/package.json"
     }
   },
   "_requiredBy": [
     "/"
   ],
-  "_resolved": "git+https://github.com/reactnativecomponent/react-native-imui.git#8615656d916352a430e4a6312b4357ac5d6b04f6",
+  "_resolved": "git+https://github.com/bingofree2015/react-native-imui.git#8615656d916352a430e4a6312b4357ac5d6b04f6",
   "_shasum": "335e972a8a57c354ee30da9d8466d91d7e4a12aa",
   "_shrinkwrap": null,
-  "_spec": "react-native-imui@git+https://github.com/reactnativecomponent/react-native-imui.git",
+  "_spec": "react-native-imui@git+https://github.com/bingofree2015/react-native-imui.git",
   "_where": "/Users/dowin/KinoooProject/CompanyApp/react-native-wallet",
   "author": "",
   "bugs": {
-    "url": "https://github.com/reactnativecomponent/react-native-imui/issues"
+    "url": "https://github.com/bingofree2015/react-native-imui/issues"
   },
   "dependencies": {},
   "description": "react-native im ui",
   "devDependencies": {},
   "gitHead": "8615656d916352a430e4a6312b4357ac5d6b04f6",
-  "homepage": "https://github.com/reactnativecomponent/react-native-imui#readme",
+  "homepage": "https://github.com/bingofree2015/react-native-imui#readme",
   "keywords": [
     "react-native"
   ],
@@ -76,7 +76,7 @@
   "readmeFilename": "README.md",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/reactnativecomponent/react-native-imui.git"
+    "url": "git+https://github.com/bingofree2015/react-native-imui.git"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
